@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College of Science Hardware Support - KNUST</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Enhanced Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #8B0000 0%, #B22222 50%, #DC143C 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background: #FFD700;
+            color: #8B0000;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary:hover {
+            background: #FFC400;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #8B0000;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #8B0000;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #FFD700;
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #8B0000;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(139, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            color: #8B0000;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Support Process */
+        .process {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            counter-reset: step;
+        }
+
+        .process-step {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .process-step::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: #8B0000;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .process-step h3 {
+            margin: 1.5rem 0 1rem;
+            color: #333;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 60px 0;
+            background: #8B0000;
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: #FFD700;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: #8B0000;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <div class="header-text">
+                    <h1>College of Science</h1>
+                    <h2>Hardware Support Unit - KNUST</h2>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="submit-ticket.php">Submit Ticket</a></li>
+                    <li><a href="check-status.php">Check Status</a></li>
+                    <li><a href="admin/login.php">Admin Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Professional IT Hardware Support</h1>
+                <p>Get expert technical assistance for all your hardware issues within the College of Science at KNUST. Fast, reliable, and professional support services.</p>
+                <div class="cta-buttons">
+                    <a href="submit-ticket.php" class="btn btn-primary">
+                        <i class="fas fa-ticket-alt"></i> Submit Support Ticket
+                    </a>
+                    <a href="check-status.php" class="btn btn-secondary">
+                        <i class="fas fa-search"></i> Check Ticket Status
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Our Support Services</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <i class="fas fa-desktop feature-icon"></i>
+                    <h3>Computer Systems</h3>
+                    <p>Comprehensive support for desktops, laptops, and workstations including hardware diagnostics, repairs, and maintenance.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <i class="fas fa-print feature-icon"></i>
+                    <h3>Printing Solutions</h3>
+                    <p>Printer setup, configuration, maintenance, and troubleshooting for all printing devices across campus.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <i class="fas fa-network-wired feature-icon"></i>
+                    <h3>Network Equipment</h3>
+                    <p>Support for switches, routers, access points, and network connectivity issues in labs and offices.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <i class="fas fa-flask feature-icon"></i>
+                    <h3>Lab Equipment</h3>
+                    <p>Specialized support for scientific hardware and laboratory equipment used in research and teaching.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <i class="fas fa-tools feature-icon"></i>
+                    <h3>Preventive Maintenance</h3>
+                    <p>Regular maintenance schedules to prevent hardware failures and ensure optimal performance.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <i class="fas fa-clock feature-icon"></i>
+                    <h3>Quick Response</h3>
+                    <p>Rapid response times with dedicated support staff available during working hours and emergencies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Process -->
+    <section class="process">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <i class="fas fa-ticket-alt" style="font-size: 3rem; color: #8B0000;"></i>
+                    <h3>Submit Ticket</h3>
+                    <p>Fill out our simple support ticket form with details about your hardware issue.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <i class="fas fa-search" style="font-size: 3rem; color: #8B0000;"></i>
+                    <h3>Diagnose Issue</h3>
+                    <p>Our technicians analyze the problem and determine the best solution approach.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <i class="fas fa-wrench" style="font-size: 3rem; color: #8B0000;"></i>
+                    <h3>Resolve Problem</h3>
+                    <p>We implement the solution, whether it's repair, replacement, or configuration.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <i class="fas fa-check-circle" style="font-size: 3rem; color: #8B0000;"></i>
+                    <h3>Confirm Resolution</h3>
+                    <p>We ensure the issue is completely resolved and follow up for your satisfaction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <h3>24/7</h3>
+                    <p>Support Availability</p>
+                </div>
+                <div class="stat-item fade-in">
+                    <h3>2.3h</h3>
+                    <p>Average Response Time</p>
+                </div>
+                <div class="stat-item fade-in">
+                    <h3>98%</h3>
+                    <p>Issue Resolution Rate</p>
+                </div>
+                <div class="stat-item fade-in">
+                    <h3>500+</h3>
+                    <p>Devices Supported</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <h3 style="margin-bottom: 2rem; color: #8B0000;">Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>College of Science Building<br>KNUST Campus, Kumasi</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+233 (0) 3220 60000</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>cos-hardware@knust.edu.gh</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>Mon - Fri: 8:00 AM - 5:00 PM<br>Sat: 9:00 AM - 1:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-info fade-in">
+                    <h3 style="margin-bottom: 2rem; color: #8B0000;">Emergency Support</h3>
+                    <p style="margin-bottom: 1.5rem; line-height: 1.6;">For critical hardware issues affecting multiple users or research activities, we provide emergency support outside regular hours.</p>
+                    
+                    <div style="background: #fff3cd; padding: 20px; border-radius: 10px; border-left: 4px solid #ffc107;">
+                        <h4 style="color: #856404; margin-bottom: 10px;">
+                            <i class="fas fa-exclamation-triangle"></i> Emergency Contact
+                        </h4>
+                        <p style="color: #856404; margin: 0;">
+                            Call: +233 (0) 543 210 987<br>
+                            Available for critical system failures
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="submit-ticket.php">Submit Ticket</a></li>
+                        <li><a href="check-status.php">Check Status</a></li>
+                        <li><a href="admin/login.php">Admin Login</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://www.knust.edu.gh">KNUST Main Website</a></li>
+                        <li><a href="https://helpdesk.knust.edu.gh">UITS Help Desk</a></li>
+                        <li><a href="#">Hardware Setup Guides</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Departments We Support</h3>
+                    <ul>
+                        <li>Mathematics</li>
+                        <li>Physics</li>
+                        <li>Chemistry</li>
+                        <li>Computer Science</li>
+                        <li>Biological Sciences</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 College of Science Hardware Support Unit - Kwame Nkrumah University of Science and Technology. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple fade-in animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
